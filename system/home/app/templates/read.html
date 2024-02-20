@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="{% static 'bootstrap-5.0.2-dist\css\bootstrap.css' %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <h1>
+    DATABASE
+  </h1>
+</head>
+<body>
+ <div >
+  <ul class="nav nav-tabs ">
+    <li class="nav-item">
+    <a class="nav-link " href="{% url 'finished' %}">Overview</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="">Database</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link " href="#">Contact</a>
+    </li >
+    <li class="nav-item">
+      <a class="nav-link" onclick="return confirm('Apakah Anda Yakin Keluar Dari Akun')" href="/logout">Logout</a>
+    </li>
+  </ul>
+ </div>
+ <div class="table-responsive-sm">
+  <table class="table ">
+    <thead class = "table-responsive">
+      <tr class= "sticky-top">
+        <th >KODE ID</th>
+        <th >NAMA BARANG</th>
+        <th >JENIS</th>
+        <th >OUTLET</th>
+        <th >HARGA MODAL</th>
+        <th >HARGA JUAL</th>
+        <th >QUANTITY</th>
+        <th >TOTAL MODAL</th>
+        <th >TOTAL JUAL</th>
+        <th >INCOME/UNIT</th>
+        <th >TOTAL INCOME</th>
+        <th >OPTIONS</th>
+      </tr>
+      {% for i in data %}
+    <tr>
+        <td> {{i.kode_id}} </td>
+        <td> {{i.nama_barang}} </td>
+        <td> {{i.jenis}} </td>
+        <td> {{i.outlet}}  </td>
+        <td> {{i.harga_modal}} </td>
+        <td> {{i.harga_jual}} </td>
+        <td> {{i.quantity}} </td>
+        <td> {{i.sum_of_modal}} </td>
+        <td> {{i.sum_of_jual}} </td>
+        <td> {{i.income_unit}} </td>
+        <td> {{i.sum_of_income}} </td>
+        <td> <a href="edit/{{i.kode_id}}">EDIT</a> <a onclick="return confirm('Apakah Anda Yakin Menghapus Data Dengan Kode ID {{i.kode_id}}')" href="{% url 'delete' i.kode_id %}">HAPUS</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+ </div>
+ <a href="tambah/">TAMBAH DATA</a> 
+ 
+  
+</body>
+</html>
+

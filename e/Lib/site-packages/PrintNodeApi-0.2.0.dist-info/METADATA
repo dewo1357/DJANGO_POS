@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: PrintNodeApi
+Version: 0.2.0
+Summary: Python Client for PrintNode's API
+Home-page: UNKNOWN
+Author: printnode
+Author-email: support@printnode.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: future
+
+UNKNOWN
+
+

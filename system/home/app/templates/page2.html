@@ -1,0 +1,77 @@
+{% extends "master.html" %}
+{% block title %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+<div class="canvas">
+    <div class="all2">
+        <div class="gabung">
+            <li>
+                <h1 >Detail Menu</h1>
+            </li> 
+        </div>
+        <div class="container7 ">
+            <div class="judul">
+                <h1>
+                    <label for="name"> <h1>{{data1.nama_barang}}</h1> </label>
+                </h1>
+            </div>
+            
+            <div class="formstyle">
+                <form action="">
+                    
+                </form>
+
+                <form action="{% url 'proses_post' %}" method="POST">
+                    {% csrf_token %}    
+                    <label for="name"> <h4> Jenis : {{data1.jenis}}</h4> </label>
+                    <label for = "harga_jual"><h1> Harga</h1></label>
+                    <label for = "harga_jual"><h1> Rp. {{data1.harga_jual}}</h1></label>
+                    <input type="text" name = "kode_barang" id="kode_barang" value = " {{data1.kode_id}} " hidden>
+                    <input type="text" name = "nama_barang" id="nama_barang" value = " {{data1.nama_barang}} " hidden>
+                    <input type="text" name = "harga_jual" id="harga_jual" value = " {{data1.harga_jual}} " hidden>
+                    <input type="text" name = "transaction_id" id="transaction_id" value="{{data1.kode_id}}{{data1.harga_jual}}{{data1.harga_modal}}{{second}}{{years}}" hidden>    
+                    <input type="text" name = "kode_barang" id="kode_barang" value = " {{data1.kode_id}} " hidden>
+                    <input type="number" name = "number_table" id="number_table" value = "{{number}}" hidden>
+                    <input type="number" name="quantity" id="quantity" placeholder="Quantity">
+                    <button type="submit">ADD</button>
+                </form>
+            </div>
+            
+        </div>  
+    </div>
+    <div class="all3">
+        <div class="gabung">
+            <h1 class="">Process</h1>
+            <br>
+        </div>
+
+        <div class="container6">
+            {% if messages %}
+            {% for messages in messages %}
+                <h2> {{messages}} </h2>
+            {% endfor %}
+        {% endif %}
+            {% for i in keluar %}
+            <div class="list_orders">
+               
+                <li>
+                    <label for=""> x{{i.quantity}} </label>
+                    <label for=""> {{i.nama_barang}} </label>
+                    <br>
+                    <label for=""> Rp. {{i.total_harga}} </label>
+                    <br>
+                </li>
+                <li><a href="{% url 'delete_item' i.transaction_id %}"><img src="{% static 'img/delete.svg' %}" alt="" width="40"></a>
+                    
+                </li>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="execute2">
+            <li id="cancel_execute"><a href="/finished">Cancel</a></li>
+       </div>
+    </div>
+</div>    
+{% endblock %}

@@ -1,0 +1,64 @@
+{%extends 'master.html'%}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="list_pesanan">
+        <div class="nav_menu">
+            <ul class="">
+                <li><a href="/"><img src="{% static 'img/back.svg' %}" alt="" width="60"></a></li>
+                <li><img src="{% static 'img/refresh.svg' %}" alt="" width="60"></li>
+                <li id = "pengaturan"><img src="{% static 'img/settings.svg' %}" alt="" width="60"></li>
+                <li><img src="{% static 'img/payment.svg' %}" alt="" width="60"></li>
+            </ul>
+        </div>
+
+        <div class="content_list_menu">
+            <div class="gabung2">
+               <h1 id="success">
+                EDIT DATA
+               </h1>
+            </div>
+            
+            <div class="container11">
+                
+                    <li> <h1 class=""> {{orders.nama_barang}} </h1>
+                        <h2 class="">Kode Barang : {{orders.kode_barang}} </h2></li>
+                    <li></li>
+            </div>
+            <div class="change">
+                <h2>Change Information </h2>
+                <form action="{% url 'process_settings' orders.transaction_id %}" method="post">
+                    {% csrf_token %}
+                        <div class="items-1">
+                            <label for="no_transaction"> <b>ID TRANSAKSI</b> </label>
+                            <br>
+                            <input type="text" name="no_transaction" id="no_transaction" value="{{orders.transaction_id}}" required readonly>
+                        </div>
+                        <div class="items-2">
+                            <label for="no_table_id"><b>No Table  </b></label>
+                            <br>
+                            <select name="no_table_id" id="no_table_id">
+                                <option value="{{orders.no_table}}">Table - {{orders.no_table}}</option>
+                                {% for table in meja %}
+                                <option value="{{table.no_table}}">
+                                    Table - {{table.no_table}}
+                                </option>
+                            {% endfor %}>
+                            </select>
+                        </div>      
+                   <div class="items-3">
+                        <li > <button type="submit" onclick="return confirm('Apakah Anda Yakin Memindahkan Pesanan ?')">Change!</button></li>
+                   </div>
+                </form>
+                <div class="tombol">
+                </div>
+            </div>
+            
+        </div>
+                
+    </div>
+
+{% endblock %}

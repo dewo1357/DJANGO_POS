@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+
+   
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>WELCOME TO DJANGO SYSTEM</h1>
+    </div>
+    <div class="menu">
+        <div class="menu">
+            <ul>
+                <li> <a  href="/login"><b>Login</b></a></li>
+                <li id="active"><a href="{% url 'registration' %}"><b>Register</b></a></li>
+                <li><a href=""><b>Contact US</b></a></li>
+                <li><a href=""><b>About US</b></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="form">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="images">
+            <img src="{% static 'img/picture.svg' %}" alt="logo" width="1000">
+        </div>  
+    </div>
+    <p id="footer">&copy; Sadewo Widyanto's Portfolio 2024</p>
+</div>
+{% endblock %}

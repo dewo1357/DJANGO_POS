@@ -1,0 +1,68 @@
+{% extends "master.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    <div class="container3">
+        <div class="menu2">
+            <h1>
+                Overview
+            </h1>
+            <ul>
+                <li><a href="{% url 'overview' %}"><b>Overview</b></a></li>
+                <li><a href=""><b>Report</b></a></li>
+                <li><a href="{% url 'settings' %}"><b>Settings</b></a></li>
+                <li><a href=""><b>Help</b></a></li>
+                <li><a onclick="return confirm('Apakah Anda Yakin Keluar Dari Akun Ini?')" href="logout/"><b>Exit</b></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="all">
+        <div class="all2">
+            <div class="gabung">
+                
+                <form action="">
+                    <h1 class="cols-3">List Menu</h1>
+                    
+                </form>
+            </div> 
+            <div class="container4 ">
+                {%for orders in orders%}
+                <ul class="items">
+                    <a href="process/{{i.no_table}}"> <b>{{orders.nama_barang}}</b> </a>                                 
+                </ul>
+                {% endfor %}
+              
+            </div>
+        </div>
+    
+        <div class="all3 ">
+            <div class="gabung">
+                <h1>Process</h1>    
+            </div>
+
+            <div class="container6">
+                <div class="listcolumns">
+                    <ul>
+                        {%for orders in orders%}
+                        <div class="list">
+                            <div><p> <span>{{orders.nama_barang}}</span>
+                                <br>
+                                x{{orders.quantity}}
+                                <br>
+                                <br>    
+                                <b>Rp.{{orders.total_harga}}</b></p></div>
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <br>    
+            <div class="pay">
+                <a href=""><b>Pay</b></a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

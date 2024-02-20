@@ -1,0 +1,74 @@
+{% extends "master.html" %}
+{% block title %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+<div class="list_pesanan">
+    <div class="nav_menu">
+        <ul>
+            <li><a href="/"><img src="{% static 'img/back.svg' %}" alt="" width="60"></a></li>
+            <li><a href="{% url 'refresh' %}"><img src="{% static 'img/refresh.svg' %}" alt="" width="60"></a></li>
+            <li id="pengaturan"><img src="{% static 'img/settings.svg' %}" alt="" width="60"></li>
+            <li><img src="{% static 'img/payment.svg' %}" alt="" width="60"></li>
+        </ul>
+    </div>
+
+    <div class="content_list_menu">
+        <div class="gabung2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h1 class=""> Table - {{numbers}} </h1>
+                <button class="" type='submit' >NEW ORDER</button>
+                <input class= "  "type="text" name="nomor_table" id = "nomor_table" value = "{{numbers}}" hidden>
+            </form>
+        </div> 
+            <div class="containertable2 ">
+                {%for orders in orders%}
+                <ul class="itemstable2">
+                    <li><h2 class=" ">{{orders.nama_barang}}</h2>
+                        <h5 class="">x{{orders.quantity}} Rp.{{orders.harga_jual}}</h5></li>
+                    <li><h1>Rp.{{orders.total_harga}}</h1></li>
+                    <li><a href="{% url 'settings' orders.transaction_id     %}"><img src="{% static 'img/settings_list.svg' %}" alt=""></a> </li>                    
+                </ul>
+                {% endfor %} 
+            </div>
+            <div class="gabung3">
+                <div class="judul_pembayaran">
+
+                    <div>
+                        <h1 class="">Payment info</h1>
+                    </div>
+                    <div>
+                        <h1 class="">Discount (%)</h1>
+                    </div>
+                    <div>
+                        <h1 class=" "> Total : Rp.{{total_harga}} </h1>
+                    </div>
+                </div>
+                <div class="format_pembayar">
+                    <div>
+                        {% for orders in orders %}
+                        <form action="{% url 'finish' orders.no_table %}" method="POST">
+                        {% endfor %}
+                        {% csrf_token %}
+                        <input class= "" type="number" name="pembayaran" id="pembayaran" placeholder="Bayar" required>
+                        <input class= "" type="number" name="Discount" id="Discount" step="0.1" placeholder="Discount %" required>
+                        <input class= ""type="text" name="transaction_id" id = "transaction_id" value = "{{info}}" hidden required>
+                        <input class= ""type="text" name="nomor_table" id = "nomor_table" value = "{{numbers}}" hidden required>
+                        <input class= ""type="text" name="tanggal" id = "tanggal" value = "{{tanggal}}" hidden >
+                        <input class= ""type="text" name="total_harga" id = "total_harga" value = "{{total_harga}}" hidden >
+                    </div>
+                    <div>
+                        <button type="submit">Process</button>
+                    </div>
+    
+                    </form>
+                </div>
+            </div> 
+    </div>
+        
+    </div>
+</div>
+    
+{% endblock %}

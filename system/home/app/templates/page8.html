@@ -1,0 +1,78 @@
+{% extends "master.html" %}
+{% block title %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+<div class="canvas">
+   <div class="all2">
+    <div class="gabung">
+        <li>
+            <h1 class="">List Menu</h1>
+        </li>
+        <li>
+            <form action="{% url 'finished' %}" method = 'GET'>
+                <input type="text" name = "cari_menu" placeholder="Enter Product Name"> 
+                <button type="submit">
+                    <b>Search</b>
+                </button>
+            </form>
+        </li>
+    </div>
+    <div class="container4 ">
+       {% for i in data %}
+            {% if i.tersisa == 0 %} 
+                <ul class="itemssoldout">
+            {%else%}
+                <ul class="items">
+            {% endif %}
+                <a href="{% if i.tersisa == 0 %} 
+                         # 
+                     {%else%} 
+                          process2/{{i.kode_id}}
+                     {% endif %}"> 
+                        <b>{{i.nama_barang}}</b> </a>                                 
+        </ul>
+        {% empty %}
+            <h2>Produk Tidak Ditemukan</h2>
+        {% endfor %}
+       
+    </div>
+
+</div>
+<div class="all3 ">
+    <div class="gabung">
+        <h1>Process</h1>
+        <br>
+    {% if messages %}
+        {% for messages in mesages %}
+            <h1> {{messages}} </h1>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+    <div class="container6">
+        {% for i in keluar %}
+        <div class="list_orders">
+            <li>
+                <label for=""> x{{i.quantity}} </label>
+                <label for=""> {{i.nama_barang}} </label>
+                <br>
+                <label for=""> Rp. {{i.total_harga}} </label>
+                <br>
+            </li>
+            <li><a href="{% url 'delete_item' i.transaction_id %}"><img src="{% static 'img/delete.svg' %}" alt="" width="40"></a>
+                
+            </li>
+        </div>
+        {% endfor %}
+    </div>
+   <div class="execute">
+        <li><a onclick="return confirm('Apakah Anda Yakin Membatalkan Proses Transaksi?')" href="/">Cancel</a></li>
+        <li><a href="{% url 'hapus' %}">Process</a></li>
+   </div>
+        
+   </div>
+</div>  
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "master.html" %}
+{% block title %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+<div class="all">
+    <div class="all7 ">
+        <ul class="">
+            <li><a href="/table"><img src="{% static 'img/back.svg' %}" alt="" width="60"></a></li>
+            <li><a href=""><img src="{% static 'img/refresh.svg' %}" alt="" width="60"></a></li>
+            <li><a href=""><img src="{% static 'img/settings.svg' %}" alt="" width="60"></a></li>
+            <li><a href=""><img src="{% static 'img/payment.svg' %}" alt="" width="60"></a></li>
+        </ul>
+    </div>
+
+    <div class="all5 ">
+        <div class="gabung">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h1 class=""> Table - {{numbers}} </h1>
+                   
+                <input type="text" name="nomor_table" id = "nomor_table" value = "{{numbers}}" hidden>
+                   
+            
+                <button class="" type='submit'>NEW ORDER</button>
+            </form>
+        </div> 
+            <div class="containertable2 ">
+                {%for orders in orders%}
+                <ul class="itemstable2">
+                    <h2 class="colt-11">{{orders.nama_barang}}</h2>
+                    <h5 class="colt-3">x{{orders.quantity}}</h5>
+                    <h1 class="">Rp.{{orders.total_harga}}</h1>                       
+                </ul>
+                {% endfor %}
+            
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

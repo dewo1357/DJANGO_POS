@@ -1,0 +1,78 @@
+{% extends "master.html" %}
+{% block title %}
+{% load static %}
+
+{% endblock %}
+{% block content %}
+<div class="list_pesanan">
+    <div class="nav_menu">
+        <ul>
+            <li><a href="/"><img src="{% static 'img/back.svg' %}" alt="" width="60"></a></li>
+            <li><a href="{% url 'refresh' %}"><img src="{% static 'img/refresh.svg' %}" alt="" width="60"></a></li>
+            <li ><img src="{% static 'img/settings.svg' %}" alt="" width="60"></li>
+            <li id="pays" ><img src="{% static 'img/payment.svg' %}" alt="" width="60"></li>
+        </ul>
+    </div>
+    
+    <div class="content_list_menu">
+        <div class="gabung2">
+            <h1 id ="success">SUCCESS</h1>
+        </div> 
+            <div class="containertable2 ">
+                {%for orders in orders%}
+                <ul class="itemstable3">
+                    <li><h2 class=" ">{{orders.nama_barang}}</h2>
+                        <h5 class="">x{{orders.quantity}} Rp.{{orders.harga_jual}}</h5></li>
+                    <li><h1>Rp.{{orders.total_harga}}</h1></li>
+                                      
+                </ul>   
+                {% endfor %}
+            </div>
+            <div class="footer">
+                <div class="gabung4">
+                    <div>
+                        <li>
+                            {% for i in detail %}
+                            <label for=""><h1>Waktu </h1></label>
+                            <label for=""><h2>{{i.tanggal}}</h2></label>
+                        </li>
+                    </div>
+
+                    <div>
+                        <li><label for=""><h4>Total harga </h4></label></li>
+                        <li><label for=""><h4>Discount(%)  </h4></label></li>
+                        <li><label for=""><h4>Paid  </h4></label></li>
+                        
+                    </div>
+                    <div>
+                        
+                        <li><label for=""><h4>: Rp. {{i.total_amount}}</h4></label></li>
+                        <li><label for=""><h4>: {{i.discount}}</h4></label></li>
+                        <li><label for=""><h4>: Rp. {{i.pay}}</h4></label></li>
+                        
+                    </div>
+
+                    <div class="kembalian">
+                        <li>
+                            <label for=""><h1>Kembalian </h1></label>
+                            <label for=""><h1>Rp. {{i.kembalian}}</h1></label>
+                        </li>
+                        {% endfor %}
+                    </div>
+                </div> 
+                <div class="done">
+                        {% for i in detail %}
+                        <div class="pdf_receipt">
+                            <a href="{% url 'print_receipt' i.no_table %}"><b>Print Receipt</b></a>
+                        </div>
+                        {% endfor %}
+                        <div class="nextback">
+                            <a href="{% url 'selesai' %}"><b>OKE</b></a>
+                        </div>
+                </div>   
+            </div>
+                    
+    </div>
+</div>
+    
+{% endblock %}

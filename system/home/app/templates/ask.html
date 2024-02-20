@@ -1,0 +1,108 @@
+{% extends 'master.html' %}
+{% load static  %}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container_ask">
+    <div class="header">
+        <marquee behavior=" " direction="">
+            <h1>Hello... WELCOME TO mariPOS</h1>
+        </marquee>
+    </div>
+    <div class="questioner">
+        <div class="halaman">
+            <div class="hello_pict">
+                <center>
+                    <img src="{% static 'img/hello.svg' %}" alt="hello" width="450">
+                </center>
+            </div>
+            <div>
+                <center>
+                    <h2>
+                        Biarkan Kami Lebih Memahami Anda
+                    </h2>
+                </center>
+            </div>
+            <div>
+                <p id="footer">&copy; Sadewo Widyanto's Portfolio 2024</p>
+            </div>  
+        </div>
+        <div class="form_questioner">
+            <div class="menu_regist">
+                <ul>
+                    <li> <a  href="/login"><b>Login</b></a></li>
+                    <li id="active"><a href="{% url 'question' %}"><b>Register</b></a></li>
+                    <li><a href=""><b>Contact US</b></a></li>
+                    <li><a href=""><b>About US</b></a></li>
+                </ul>
+                
+            </div>
+            <form action="{% url 'questioner' %}" method="POST">
+                {% csrf_token %}
+                    <div>
+                        <label for="nama_pengusaha">
+                            Nama Pengusaha
+                        </label>
+                        <br>
+                        <input type="text" id="nama_pengusaha" name="nama_pengusaha" placeholder="Nama Pengusaha" size="70" required >
+                    </div>
+
+                    <div>
+                        <label for="nama_usaha">
+                            Nama Toko
+                        </label>
+                        <br>
+                        <input type="text" id="nama_usaha" name="nama_usaha" placeholder="Nama Usaha" size="70" required >
+                    </div>
+
+                   <div>
+                    <label for="alamat">
+                        Alamat Perusahaan
+                    </label>
+                    <br>
+                    <input type="text" id="alamat" name="alamat" placeholder="Alamat Usaha" size="70" required >
+                   </div>
+                   
+                    <div class="select_part">
+                        <div>
+                            <label for="jumlah_anggota">
+                                Jumlah Anggota
+                            </label>
+                            <br>
+                            <select name="jumlah_anggota" id="jumlah_anggota">Jumlah Karyawan
+                                <option value="lima anggota">5 Anggota</option>
+                                <option value="8 anggota">8 Anggota</option>
+                                <option value="Lebih Dari 10">10 Anggota</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="skala_usaha">
+                                Skala Usaha
+                            </label>
+                            <br>
+                            <select name="skala_usaha" id="skala_usaha">Jumlah Karyawan
+                                <option value="Cafe">Cafe</option>
+                                <option value="Resto">Resto</option>
+                                <option value="Cafe And Resto">Cafe And Resto</option>
+                                <option value="Coffee Shop">Coffee Shop</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        
+                    </div>
+                    <div>
+                        <label for="nomor_whatssapp">Nomor Whatsapp</label> 
+                        <br>
+                        <input type="text" id="nomor_whatssapp" name="nomor_whatssapp" placeholder="Isi Nomor Whatsapp Kamu" maxlength= "12" minlength="12" required>
+                    </div>
+                    <button type="submit">Proses!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

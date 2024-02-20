@@ -1,0 +1,73 @@
+{% extends "master.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    <div class="container3">
+        <div class="menu2">
+            <h1>
+                Overview
+            </h1>
+            <ul>
+                <li><a href="{% url 'table' %}"><b>Overview</b></a></li>
+                <li><a href="{% url 'visualization' %}"><b>Report</b></a></li>
+                <li><a href="{% url 'ovr_set' %}"><b>Settings</b></a></li>
+                <li><a href=""><b>Help</b></a></li>
+                <li><a onclick="return confirm('Apakah Anda Yakin Keluar Dari Akun Ini?')" href="{% url 'logout' %}"><b>Exit</b></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="all">
+        <div class="all4">
+            <div class="gabung-1">
+                <div>
+                    <h1 class=" ">New Orders</h1>
+                </div>
+                <div class="format">
+                        <form action="{% url 'post_list_table' %}" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <select name="cashier_name" id="cashier_name">
+                                    <option value="{{user.username}}">{{user.username}}</option>
+                                    {% for cashier in cashier %}
+                                        <option value="{{cashier.name_cashier}}">
+                                            {{cashier.name_cashier}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <select name="number_table" id="number_table">
+                                    <option value=" ">
+                                        {{message}}
+                                    </option>
+                                    {% for table in meja %}
+                                    <option value="{{table.no_table}}">
+                                        Table - {{table.no_table}}
+                                    </option>
+                                    {% endfor %}>
+                                </select>
+                            </div>
+                            <button type='submit'><b>NEW ORDER</b></button>
+                        </form>
+                </div>
+            </div> 
+           
+
+            <div class="containertable ">
+                {% for i in orders %} 
+                    <ul class="itemstable">
+                        <div>
+                            <a href="{% url 'list' i.no_table %}"> <b>Table - {{i.nomor_meja}}</b> </a>
+                        </div>                       
+                    </ul>
+
+                {% endfor %}
+            </div>
+        </div>
+    
+        
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="all">
+        <div class="judul-1">
+            <h1>
+                SETTING    
+            </h1>
+        </div>
+        <div class="containersetting">
+            <div class="settings-1">
+                <div class="content-1">
+                    <ul>
+                        <li><a href="{% url 'ovr_set' %}""><b>Product Overview</b></a></li>
+                        <li><a href="{% url 'ovr_set2' %}"><b>Cashier Overview</b></a></li>
+                        <li><a href="{% url 'ovr_set1' %}"><b>Table Overview</b></a></li>
+                        <li><a href="/"><b>Kembali</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="settings-2">
+                <div class="judul-2 ">
+                    <div>
+                        <h1>
+                            Product Overview    
+                        </h1>
+                    </div>
+                    <div class="tambah_data">
+                        <a href="{% url 'tambah' %}"><h1>Tambah Data</h1></a>
+                    </div>
+                </div>
+                <div class="read_table">
+                    <ul>
+                     {% for data in data %}
+                        {% if data.tersisa == 0 %}
+                        <div class="overview_sold">
+                        {% else %}
+                        <div class="overview">
+                        {% endif %}
+                             <li> 
+                                {% if data.tersisa == 0 %}
+                                    {{data.nama_barang}} <b>(SOLDOUT)</b> 
+                                {% else %}
+                                    {{data.nama_barang}} 
+                                {% endif %}
+                            </li>
+                             <li>  <a href="{% url 'edit' data.kode_id %}"><img src="{% static 'img/settings_list.svg' %}" alt="" width="40"></a> </li>
+                         </div>
+                     {% endfor %}
+                    </ul>
+                 </div>
+            </div>
+        </div>
+
+    </div>  
+{% endblock %}
