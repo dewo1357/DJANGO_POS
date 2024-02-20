@@ -1,63 +1,78 @@
 {% extends "master.html" %}
 {% block title %}
-    <h3>
-        <a href="/product">Kembali</a>
-    </h3>
-    <h1>
-        EDIT DATA
-    </h1>
 {% endblock %}
 {% block content %}
-    {% if messages %}
-        {% for message in messages %}
-            <p> {{message}} </p>
-        {% endfor %}
-    {% endif %}
-    <form action="" method = 'POST'>
-        {% csrf_token %}
-        <label for="kode_id">Kode ID</label>
-        <br>
-        <input type="text" name = "kode_id" id = "kode_id" value="{{data.kode_id}}" maxlength="50" size = "63" readonly>
-        <br>
-        <br>
-        <label for="nama_barang">Nama Barang</label>
-        <br>
-        <input type="text" name = "nama_barang" id = "nama_barang" value="{{data.nama_barang}}" maxlength="50" size = "63" required>
-        <br>
-        <br>
-        <label for="jenis">Jenis</label>
-        <br>
-        <select name="jenis">
-            <option  value="Makanan" >Makanan</option>
-            <option value="Minuman">Minuman</option>
-            <option value="Electronic">Electronic</option>
-        </select>
-        <br>
-        <br>
-        <label for="outlet">Outlet</label>
-        <br>
-        <select name="outlet">
-            <option value="{{data.outlet}}">Jakarta</option>
-            <option value="Medan">Medan</option>
-            <option value="Tebing Tinggi">Tebing Tinggi</option>
-        </select>
-        <br>
-        <br>
-        <label for="harga_modal">Harga Modal</label>
-        <br>
-        <input type="text" name = "harga_modal" id = "harga_modal" value="{{data.harga_modal}}" maxlength="50" size = "63" required>
-        <br>
-        <br>
-        <label for="harga_jual">Harga Jual</label>
-        <br>
-        <input type="text" name = "harga_jual" id = "harga_jual" value="{{data.harga_jual}}" maxlength="50" size = "63" required>
-        <br>
-        <br>
-        <label for="quantity">Stok Tersedia</label>
-        <br>
-        <input type="number" name = "quantity" id = "quantity" value="{{data.tersisa}}" maxlength="50" size = "63" required>
-        <br>
-        <br>
-        <button type="submit">SIMPAN</button>
-    </form>
+<div class="all">
+    <div class="judul-1">
+        <h1>
+            EDIT DATA
+        </h1>
+    </div>
+    <div class="containersetting">
+        <div class="settings-1">
+            <div class="content-1">
+                <ul>
+                    <li><a href="{% url 'ovr_set' %}""><b>Product Overview</b></a></li>
+                    <li><a href="{% url 'ovr_set2' %}"><b>Cashier Overview</b></a></li>
+                    <li><a href="{% url 'ovr_set1' %}"><b>Table Overview</b></a></li>
+                    <li><a href="/product"><b>Kembali</b></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="settings-2">
+            <div class="format_tambah">
+                <form action="" method = 'POST'>
+                    {% csrf_token %}
+                    <div>
+                        <input type="text" name = "kode_id" id = "kode_id" value="{{data.kode_id}}" maxlength="50" size = "63" readonly hidden>
+                    </div>
+                    <div>
+                        <label for="nama_barang">Nama Barang</label>
+                        <br>
+                        <input type="text" name = "nama_barang" id = "nama_barang" value="{{data.nama_barang}}" maxlength="50" size = "63" required>
+                    </div>
+                    <div class="select_part">
+                        <div>
+                            <label for="jenis">Jenis</label>
+                            <br>
+                            <select name="jenis">
+                                <option  value="Makanan" >Makanan</option>
+                                <option value="Minuman">Minuman</option>
+                                <option value="Electronic">Electronic</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="outlet">Outlet</label>
+                            <br>
+                            <select name="outlet">
+                                <option value="{{data.outlet}}">Jakarta</option>
+                                <option value="Medan">Medan</option>
+                                <option value="Tebing Tinggi">Tebing Tinggi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="harga_modal">Harga Modal</label>
+                        <br>
+                        <input type="text" name = "harga_modal" id = "harga_modal" value="{{data.harga_modal}}" maxlength="50" size = "63" required>
+                    </div>
+                    <div>
+                        <label for="harga_jual">Harga Jual</label>
+                        <br>
+                        <input type="text" name = "harga_jual" id = "harga_jual" value="{{data.harga_jual}}" maxlength="50" size = "63" required>
+                    </div>
+                    <div>
+                        <label for="quantity">Stok Tersedia</label>
+                        <br>
+                        <input type="number" name = "quantity" id = "quantity" value="{{data.tersisa}}" maxlength="50" size = "63" required>
+                    </div>
+                    <div>
+                        <button type="submit">EDIT</button>
+                    </div>
+                    
+                </form>
+            </div>
+    </div>
+
+</div>  
 {% endblock %}

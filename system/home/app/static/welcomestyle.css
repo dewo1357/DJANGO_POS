@@ -1855,6 +1855,48 @@ body{
     background-color: rgba(12, 96, 253, 0.192);
 }
 
+.format_tambah{
+    background-color: rgba(4, 95, 170, 0.247);
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 20px;
+    width: 97.5%;
+    padding: 10px;
+    border-radius: 12px;
+    
+}
+
+.format_tambah input{
+    margin-bottom: 19px;
+    margin-top: 5px;
+    height: 35px;
+    width: 97%;
+    border: 0px solid;
+    border-radius: 8px;
+    font-size: 15px;
+
+}
+
+.format_tambah label{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.format_tambah button{
+    width: 97%;
+    height: 40px;
+    border: 0px solid;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgb(43, 144, 226);
+    cursor: pointer;
+}
+
+.format_tambah button :hover, .format_tambah button:active{
+    cursor: pointer;
+    background-color: rgb(2, 42, 77);
+    color: #f0f8ff;
+}
 
 
 @media screen and (max-width : 800px){
