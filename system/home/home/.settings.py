@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
+ENVIRONMENT = env('ENVIRONMENT',default='productions')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +27,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yavmr)$9+l%oi+ndh^&y!w_geish@q$-6h_#n=wv#*t7z_ci6m'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if ENVIRONMENT == 'development':
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'environ',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +88,11 @@ WSGI_APPLICATION = 'home.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'project',
+        'NAME': 'railway',
         'USER': 'root',
-        'HOST' : 'localhost',
-        'PASSWORD' : 'mellowgeng',
-        'PORT' : '3306',
+        'HOST' : 'viaduct.proxy.rlwy.net',
+        'PASSWORD' : 'H6aDcf3FcDHDDEF-DCC4BF62EdHeGbBA',
+        'PORT' : '43391',
     }
 }
 
