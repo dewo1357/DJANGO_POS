@@ -17,8 +17,6 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
-ENVIRONMENT = env('ENVIRONMENT',default='productions')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,12 +28,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if ENVIRONMENT == 'development':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -48,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'environ',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'home.urls'
@@ -85,17 +81,20 @@ WSGI_APPLICATION = 'home.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
     'default': {
-        'ENGINE': env('ENGINE'),
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'HOST' : env('HOST'),
-        'PASSWORD' : env('PASSWORD'),
-        'PORT' : env('PORT'),
+        'ENGINE': env('DB_ENGINE'),  # Ganti dengan engine yang sesuai
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),  # Ganti sesuai dengan host database Anda
+        'PORT': env('DB_PORT'),  # Ganti sesuai dengan port database Anda
     }
 }
 
+#'default': dj_database_url.parse(env('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -131,10 +130,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR/'productstyle'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 URL_LOGIN = "question"
 

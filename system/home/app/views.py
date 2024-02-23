@@ -12,7 +12,6 @@ from datetime import datetime as dt
 from datetime import date as date
 from django.http import FileResponse
 import io
-import reportlab
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter

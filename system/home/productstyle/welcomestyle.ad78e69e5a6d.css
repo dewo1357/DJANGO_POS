@@ -1,0 +1,2704 @@
+body{
+    font-family: arial;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0px;
+    background-color: rgb(182, 209, 245);
+    min-width: 30%
+    
+}
+
+.container{
+    display: grid;
+    padding: 5px;
+}
+
+
+.header{
+    padding: 5px;
+    margin-bottom: 30px;
+   
+}
+
+.header h1{
+    margin: 0px;
+    max-width: 100%;
+    min-width: 60%;
+    font-size: 70px; 
+    margin-bottom: 0px;  
+    
+}
+
+.menu{
+    padding: 0px;
+    
+    
+}
+
+
+
+.menu ul{
+    padding: 0px;
+    margin: 2px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% ;
+    width: 70%;
+   
+}
+
+.menu li{
+    margin-right: 20px; 
+    background-color: rgb(253, 253, 253);
+    list-style: none;
+    padding: 5px;
+    padding-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#active{
+    background-color: rgba(0, 0, 0, 0.5);
+    
+}
+
+#active a{
+    color: white;
+}
+
+.menu li:hover ,menu li:active{
+    background-color: rgba(105, 105, 105, 0.281);
+    cursor: pointer;
+}
+
+
+.menu a{
+    text-decoration: none;
+    font-size: 17px;
+    color: black    ;
+}
+
+.menu_regist ul{
+    padding: 0px;
+    margin: 2px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 35% 35% 35% 35% ;
+    width: 70%;
+
+}
+
+.menu_regist li{
+    margin-right: 20px; 
+    background-color: rgb(253, 253, 253);
+    list-style: none;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.menu_regist li:hover ,.menu_regist li:active{
+    background-color: rgba(105, 105, 105, 0.281);
+    cursor: pointer;
+}
+
+
+.menu_regist a{
+    text-decoration: none;
+    font-size: 17px;
+    color: black    ;
+}
+
+
+.container2{
+    display: grid;
+    grid-template-columns: 52% 50%;
+    
+}
+
+.container2 ul{
+    padding: 0px;
+    margin:0px;
+    margin-top: 20px;
+   
+}
+
+.container2 form{
+    height: 200px;
+    padding: 0px;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.container2 form li{
+    font-size: 15px;
+}
+
+.container2 form input{
+    width:80%;
+    height: 20%;
+    padding: 2px;
+    margin-top: 2px;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.container2 form label{
+    font-size: 20px;
+}
+
+.columns{
+    border: 0px solid;
+    margin: 0px;
+}
+
+.images{
+    padding: 0px;
+    width: 70%;
+    max-width: fit-content;
+    margin-top: 0px;
+    margin-left: 15%;
+}
+
+.images img{
+    max-width: 100%;
+    min-width: 30%;
+}
+
+.container_ask{
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 0px;
+}
+
+.container_ask label{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.container_ask form input{
+    margin-bottom: 10px;
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    border: 0px solid;
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+
+
+.container_ask button{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px solid;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: rgb(10, 127, 230);
+}
+
+
+.questioner{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 100%;
+    margin-top: 0px;
+}
+
+.hello_pict{
+    margin-top: 50px;
+}
+
+.form_questioner{
+    background-color: rgba(83, 136, 196, 0);
+    grid-template-columns: 100%;
+    grid-template-rows: 50%;
+    padding: 20px;  
+    padding-top: 0px;
+    border-radius: 10px;
+
+}
+
+.form_questioner form{
+    margin-top: 20px;
+}
+
+.select_part{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 20px;
+}
+
+.select_part select{
+    width: 90%;
+    height: 70%;
+    border: 0px solid;
+    background-color: rgb(88, 161, 224);
+    border-radius: 7px;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width : 480px){
+    img{
+        display: none;
+    }
+    
+    .header h1{
+        width: 100px;
+    }
+    
+
+    .container2 form label{
+        text-align: left;
+    }
+
+    .menu li{
+        display: block;
+        width: 300px;
+    }
+
+    .menu li a{
+        text-align: center;
+        
+    }
+}
+
+
+#footer{
+    position: fixed;
+    bottom: 0px;
+}
+
+.container2 button{
+    width : 81%;
+    height : 40px;
+    background-color: rgba(1, 86, 245, 0.699);
+    border: 0px solid wheat;
+    border-radius: 11px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+}
+
+.container2 button:hover , container2 button:active{
+    background-color: rgba(105, 105, 105, 0.281);
+    cursor: pointer;
+}
+
+.container2 label{
+    font-size: 14px;
+    font-family:Tahoma;
+}
+
+.container2 form input :placeholder-shown{
+    font-size: 20px;
+}
+
+.container3{
+    background-color: rgb(253, 253, 253);
+    padding: 5px;
+    border: 0px solid wheat;
+    border-radius: 10px;
+    max-width: 99.5%;
+    min-width: 40%;
+    height: 90px;
+    margin: 0.7% auto;
+    height: 50%;
+    max-height: 70%;
+    margin-top: 0px;
+}
+
+.container3 h1{
+    margin: 0px auto;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif    ;
+}
+.menu2{
+    margin-bottom: 0px;
+    max-width: 100%;
+    
+}
+
+
+.menu2 ul{
+    padding: 0px;
+    margin :10px auto;
+    text-align: center;
+    
+}
+
+.menu2  li{
+    list-style: none;
+    border: 0px solid;
+    display:inline-block;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 9px;
+    background-color: rgba(112, 167, 230, 0.986);
+    font-size: 18px;
+    min-inline-size: 15px;
+    max-width: 15%;
+    min-width: 14%;
+    text-align: center;
+    margin-top: 20px;
+   
+}
+
+.menu2 li:hover, menu li:active{
+    background-color: rgb(1, 20, 49);
+    color: aliceblue;
+}
+
+
+.menu2 a{
+    width: 300px;
+    color: rgb(14, 14, 14);
+    text-align: center;
+}
+
+.menu2 a:hover,.menu2 a :active{
+    color: aliceblue;
+}
+
+.menu2 ul li a{
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+    
+}
+
+.menu2 h1{
+    text-align: center;
+}
+
+.all{
+    margin: 0px;
+}
+
+.canvas{
+    background-color: rgba(255, 255, 255, 0);
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap : 20px;
+    height: 100%;
+    margin-right: 30px;
+}
+
+.all2{
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto;
+    text-align: center;
+    width: 100%;
+    border-radius: 12px;
+    
+}
+
+.all3{
+    background-color: rgb(253, 253, 253);
+    border: 0px solid wheat;
+    width: 100%;
+    padding: 5px;
+    border-radius: 12px ;
+}
+
+.container4{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    overflow: auto;
+    background-color: rgba(253, 253, 253);
+    border: 0px solid wheat;
+    border: 0px solid wheat;
+    border-radius: 10px;
+    height: 450px;
+   
+}
+
+
+
+.container7{
+    padding: 10px;   
+    max-width: 100%;
+    min-width : 60%;
+    background-color: rgba(253, 253, 253);
+    padding: 1px;
+    border: 0px solid wheat;
+    border: 0px solid wheat;
+    border-radius: 10px;
+    margin : 10px auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 360px;
+}
+ 
+
+.items{
+    background-color: rgba(11, 134, 234, 0.617);
+    border: 0px solid;
+    margin: 2px 5px;
+    border-radius: 12px;
+    padding : 30px;
+    text-align: center;
+    margin-bottom: 10px;
+
+    
+}
+
+.items:hover, .items:active{
+    background-color: rgba(184, 219, 248, 0.555);
+}
+
+.items a{
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 0px;
+    text-align: center;
+    
+    
+}
+
+.itemssoldout{
+    background-color: rgba(52, 72, 88, 0.884);
+    border: 0px solid;
+    margin: 2px 5px;
+    border-radius: 12px;
+    padding : 30px;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+
+
+.itemssoldout a{
+    color: rgb(248, 250, 252);
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 0px;
+    text-align: center;
+    cursor : default
+    
+}
+
+.containertable{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 32% 32% 32% 32% 32%;
+    text-align: center; 
+    padding: 0px;
+    overflow: auto;
+    background-color: rgba(253, 253, 253);
+    padding: 1px;
+    border: 0px solid wheat;
+    border: 0px solid wheat;
+    border-radius: 10px;
+    margin : 10px auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 320px;
+}
+
+
+
+.itemstable{
+    background-color: rgb(32, 149, 216);
+    border: 0px solid;
+    margin: 2px 5px;
+    border-radius: 12px;
+    padding : 0px;
+    
+}
+
+.itemstable:hover , .itemstable:active{
+    background-color: cadetblue ;
+}
+
+.itemstable a{
+    color: black;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.containertable ul{
+    background-color: rgba(11, 134, 234, 0.342);;
+    padding: 10%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+
+.containertable2{
+    grid-template-columns: 50% 50%;  
+    text-align: center; 
+    padding: 0px;
+    overflow: auto;
+    max-width: 100%;
+    min-width : 60%;
+    background-color: rgb(255, 255, 255);
+    padding: 1px;
+    border: 0px solid wheat;
+    border-radius: 10px;
+    margin : 10px auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 325px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+}
+
+
+
+.containertable2 ul {
+    background-color: rgba(11, 134, 234, 0.342);
+    padding:2%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: left;
+    height:15%;
+}
+
+.containertable2 ul li{
+    list-style: none;
+}
+
+.containertable2 ul li label{
+   
+    font-size: 20px;
+  
+}
+
+.itemstable2{
+    background-color: rgb(43, 44, 44);
+    border: 0px solid;
+    margin: 2px 5px;
+    border-radius: 12px;
+    padding : 0px;
+    height: 5%;
+    display: grid;
+    grid-template-columns: 72% 19% 10%;
+}
+
+.itemstable2 ul{
+    border: 0px solid;
+}
+
+.itemstable2 li{
+    border: 0px solid;
+}
+
+
+.itemstable2 h1{
+    margin: 0px;
+    font-size: 35px;
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-left: 20px;
+}
+
+.itemstable2 h2{
+    margin: 0px auto;
+    font-size: 25px;
+    text-align: left;
+}
+
+.itemstable2 h5{
+    margin: 0px auto;
+    font-size: 18px;
+}
+
+.itemstable2 li img{
+    margin-left: 80%;
+    margin-top: 0px;
+    width: 30px;
+    border-radius: 12px;
+}
+
+.itemstable2 li img :hover, .itemstable2 li img :active{
+    background-color: rgba(0, 0, 0, 0.89);
+    cursor: pointer;
+}
+    
+
+.itemstable3{
+    background-color: rgb(43, 44, 44);
+    border: 0px solid;
+    margin: 2px 5px;
+    border-radius: 12px;
+    padding : 0px;
+    height: 5%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.itemstable3 ul{
+    border: 0px solid;
+}
+
+.itemstable3 li{
+    border: 0px solid;
+}
+
+.itemstable3 h1{
+    margin: 0px auto;
+    font-size: 35px;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.itemstable3 h2{
+    margin: 0px auto;
+    font-size: 25px;
+    text-align: left;
+}
+
+.itemstable3 h5{
+    margin-top: 2px;
+    font-size: 19px;
+}
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+.container5{
+    background-color: rgb(253, 253, 253);
+    border: 0px solid wheat;
+    border-radius: 10px;
+    margin: 0% auto;
+    height: 450px;
+    padding: 0px;
+    margin-left: 0px;
+    width: 500px;
+    
+}
+
+.container6{
+    background-color: rgb(253, 253, 253);
+    border: 0px solid wheat;    
+    margin: 0px;
+    height: 350px;  
+    margin-right: 0px;
+    overflow: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+
+
+
+.all{
+    padding: 0px;
+}
+
+
+.gabung{
+    background-color: rgba(11, 134, 234, 0.617);
+    padding: 0px;
+    margin-top: 0px;
+    border-radius: 12px;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 100%;
+
+}
+
+.gabung li{
+    list-style: none;
+}
+
+.gabung form{
+    padding: 5px;
+    text-align: left;
+    border-bottom: 0px;
+    width: 100%;
+}
+
+
+.gabung form input{
+    width: 70%;
+    border: 0px solid rgb(7, 7, 7);
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 10px;
+
+}
+
+
+.gabung h1{
+    padding: 5px;
+    margin: 0px;
+    text-align: left;
+    font-size: 35px;
+}
+
+.gabung h2{
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+    font-size: 20px;
+    background-color: red;
+    margin-bottom: 5px;
+    margin-left:5px;
+}
+
+.gabung button{
+    height: 42px;
+    width: 27%;
+    border: 0px solid;
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+
+
+.gabung li button:hover, .gabung li button:active{
+    background-color:rgb(4, 11, 75);
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.gabung-1{
+    background-color: rgba(11, 134, 234, 0.617);
+    padding: 0px;
+    margin-top: 0px;
+    border-radius: 12px;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 100%;
+   
+}
+
+.format{
+    display: grid;
+}
+
+.format form{
+    border: 0px solid rgb(7, 7, 7);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: grid;   
+    grid-template-columns: 40% 40% 20%;
+}
+
+.format form select{
+    height: 40px;
+    width: 80%;
+}
+
+
+.format button{
+    height: 80%;
+    border-radius: 12px;
+    border: 0px solid;
+    font-size: 15px;
+    background-color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 10px;
+}
+
+.format form button:hover,.format form button:active{
+    background-color: rgb(2, 2, 53);
+    color: rgb(254, 255, 255);      
+    cursor: pointer;
+}
+
+.gabung-1 h1{
+    padding: 5px;
+    margin: 0px;
+    text-align: left;
+    font-size: 35px;
+}
+
+
+.gabung-1 hr{
+    margin: 0px;
+}
+
+.gabung-1 select{
+    border : 0px solid;
+    margin-left: 5px;
+    border-radius: 8px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+
+
+.gabung-1 button:hover, .gabung-1 button:active{
+    background-color:aqua;
+}
+
+
+.gabung2{
+    background-color: rgba(11, 134, 234, 0.617);
+    padding: 0px;
+    border-radius: 12px;
+    height: 120px;
+    margin-bottom: 10px;
+   
+}
+
+.gabung2 h1{
+    margin : 0px;
+    text-align : left;
+}
+
+
+.gabung2 form{
+    padding: 5px;
+    border-bottom: 0px;
+    
+}
+
+.gabung2 button{
+    border: 0px solid;
+    width: 300px;
+    padding: 11px;
+    cursor: pointer;
+    background-color: rgb(253, 248, 238);
+    border-radius: 8px;
+    margin-left: 0px;
+    margin-top: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gabung2 button:hover,.gabung2 button:active{
+    background-color: rgb(1, 21, 58);
+    color: aliceblue;
+}
+
+.gabung2 form input{
+    border: 0px solid rgb(7, 7, 7);
+    border-radius: 10px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.gabung3{
+    background-color: rgba(11, 134, 234, 0.617);
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    height: 120px;
+   
+}
+
+.judul_pembayaran{
+    display: grid;
+    grid-template-columns: 32% 44% 25%;
+    
+}
+
+.judul_pembayaran h1{
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-size: 200%;
+}
+
+.judul_pembayaran ul{
+    padding: 0px;
+    margin-top: 0px;
+    display: inline;
+}
+
+.judul_pembayaran li{
+    list-style: none;
+    display: inline;
+}
+
+.format_pembayar{
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 72% 28%;
+   
+}
+
+.format_pembayar form{
+    border-bottom: 0px;
+    
+}
+
+.format_pembayar form input{
+    border: 0px solid;
+    border-radius: 9px;
+    float: left;
+    background-color: aqua;
+    height: 40px;
+    width: 40%;
+    margin-right: 4%;
+    font-size: 120%;
+}
+
+.format_pembayar button{
+    border: 0px solid;
+    width: 87%;
+    padding: 11px;
+    cursor: pointer;
+    background-color: rgb(252, 252, 252);
+    border-radius: 8px;
+    margin-left: 13.50%;
+    margin-bottom: 0px;
+    height: 40px;
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: 81% 20%;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.gabung4{
+    background-color: rgba(11, 134, 234, 0.617);
+    border-radius: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display:grid;
+    grid-template-columns: 30% 15% 20% 35%;
+    grid-template-rows: 1px 25%;
+}
+
+.gabung4 ul{
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.gabung4 li{
+    list-style: none;
+    text-align: left;
+    border : 0px solid;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.gabung4 label h1{
+    margin-top: 10px;
+}
+
+.gabung4 label h4{
+    margin-top: 10px;
+    margin-left: 30px;
+
+}
+
+.done{
+    width: 70%;
+    border-radius: 15px;
+    display : grid;
+    grid-template-columns: 100%;
+    padding: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.pdf_receipt , .nextback{
+    background-color: rgb(4, 138, 248);
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 3px;
+    border-radius: 10px;
+    border: 0px solid;
+}
+
+.pdf_receipt:hover, .pdf_receiptL:active{
+    background-color: rgb(2, 20, 37);
+    color: white;
+    cursor: pointer;
+}
+
+.nextback:hover, .nextbackL:active{
+    background-color: rgb(2, 20, 37);
+    color: white;
+    cursor: pointer;
+}
+
+.pdf_receipt a, .nextback a{
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    padding-left: 20px;
+    text-align: center;
+    width: 100px;
+    font-size: 20px;
+    
+}
+
+.nextback a{
+    padding-left: 36%;
+    padding-right: 40%;
+}
+
+
+
+
+
+
+.container7 label h1{
+    background-color: rgba(0, 255, 255, 0)  ;
+    margin: 0px;
+    text-align: left;
+}
+
+.formstyle{
+    background-color: rgba(0, 255, 255, 0)  ;
+    margin: 0px;
+    text-align: left;
+    padding: 0px;
+    border-radius: 12px;
+    
+}
+
+.formstyle label{
+    font-size: 18px;    
+    
+}   
+
+.container7 form input{
+    width : 100%;  
+    background-color: rgba(127, 172, 255, 0.295);
+    border: 0px solid;
+    height: 50px;
+    border-radius: 7px;
+    margin-bottom: 10px;    
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.judul{
+    height: 70px;
+    margin-bottom: 15px;
+    padding: 0px;   
+}
+
+.judul h1{
+    margin: 0px ;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+.judul h2{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.formstyle button{
+    background-color: rgba(11, 134, 234, 0.617);
+    font-family :sans-serif;
+    width: 100%;
+    height: 60px;
+    margin: 0px auto;
+    border: 0px solid;
+    border-radius: 10px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.692);
+}
+
+.formstyle label{
+    font-size: 18px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    padding: 0px;
+}
+
+.right{
+    text-align: right;
+}
+
+.formstyle label h1{
+    margin-bottom: 15px;
+    margin-top: 0px;
+    margin-bottom: 5px;    
+
+}
+
+
+.formstyle h4{
+    margin-bottom: 15px;
+    margin-top: 0px;
+    margin-top: 0px;
+}
+
+.formstyle input{
+    background-color: aquamarine;
+    width: 100%;
+    height: 50px;
+    border: 0px solid;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.formstyle button:hover, .formstyle button:active{
+    cursor:pointer;
+    background-color: rgb(40, 113, 177);
+}
+
+
+
+.listcolumns ul{
+    margin-bottom: 10px;
+    font-size: 10px;
+    margin: 10px auto;  
+   
+    padding : 10px;
+    overflow: auto;
+    height: 20%;
+}
+
+.list {
+    background-color: rgba(0, 0, 255, 0.233);
+    height: 40px;
+
+}
+
+
+
+
+
+
+.all4{
+    background-color: rgb(253, 253, 253);
+    border: 0px solid wheat;
+    border-radius: 10px;
+    margin: 0% auto;
+    height: 95%;
+    padding: 10px;
+    margin-right: 0px;
+    display:grid;
+    
+}
+
+.all5{
+    display: grid;
+    grid-template-columns: auto;
+    text-align: center;
+    padding: 0px;
+    min-width: 50%;
+    width: 87.5%;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 0px solid wheat;
+    border: 0px solid wheat;
+    border-radius: 10px;
+    margin : 0px auto;
+    min-height: 20%;
+    max-height: 100%;
+    height: 580px;
+    margin-left: 10px;
+    position: absolute;
+    right: 10px;
+    left: 110px;
+}
+
+.list_pesanan{
+    display: grid;
+    grid-template-columns: 9% 90%;
+    gap: 10px;
+    height: 90%;
+    margin-bottom: 0px;
+}
+
+
+.nav_menu{
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    display: grid;
+    grid-template-rows: 20%;
+   
+}
+
+.nav_menu ul{
+    padding: 0px;
+    margin:0px;
+    margin-top: 60%;
+    
+}
+
+.nav_menu li{
+    list-style: none;
+    text-align: center;
+    padding: 0px;
+    margin-bottom: 45%;
+}
+
+.nav_menu img{
+    width: 70px;
+}
+
+.content_list_menu{
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border-radius: 12px;
+    width: 99.8%;
+    height: 100%;
+    
+}
+
+#pengaturan img{
+    background-color: rgba(0, 0, 0, 0.479);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+#pays{
+    background-color: rgba(0, 0, 0, 0.479);
+    border-radius: 12px;
+}
+
+.nav_menu li img:hover, .nav_menu li img:active{
+    background-color: rgba(0, 0, 0, 0.486);
+    border-radius: 12px;
+}
+
+
+.container10{
+    background-color: rgb(252, 252, 252);
+    position : sticky;
+    margin-left: 110px;
+    margin-top : 0px;
+    border-radius: 12px;
+    padding: 10px;
+    
+}
+
+.container11{
+    background-color: rgba(244, 244, 245, 0.617);
+    display : grid;
+    grid-template-columns:  70% 30%;
+    margin-top: 10px;
+    border-radius: 12px;
+    padding :10px;
+
+}
+
+.container11 li{
+    list-style: none;
+}
+
+.container11 h1{
+    font-size: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+
+.container11 h2{
+    margin-top: 0   px;
+}   
+
+.change {
+    background-color: rgba(11, 134, 234, 0.617);
+    margin-top: 10px;
+    border: 0px solid;
+    padding: 10px;
+    border-radius: 12px;
+
+}
+
+
+.change{
+    font-size: 16px;
+}
+
+.change form{
+    display : grid;
+    grid-template-columns: 25% 25% auto;
+    padding: 0px;
+    gap: 30px;
+    
+}
+
+.change ul{
+    padding: 0px;
+    margin-right: 50px;
+}
+
+.change li{
+    list-style: none;
+}
+
+.change h2{
+    margin-top: 0px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.change input{
+    width: 100%;
+    font-size: 45px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 0px solid;
+}
+
+.change select{
+    width: 100%;
+    font-size: 45px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 0px solid;
+}
+
+.change button{
+    width: 100%;
+    height: 55px;
+    border-radius: 12px;
+    border: 0px solid;
+    font-size: 30px;
+    background-color: rgba(11, 134, 234, 0.617) ;
+}
+
+.change button:hover,.change button:active{
+    background-color: rgb(6, 69, 124);
+    cursor: pointer;
+}
+
+.items-1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.items-2{
+    grid-column-start: 3;
+}
+
+.items-3{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.edit{
+    width: 1200%;
+    background-color:aqua;
+}
+.execute{
+    
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-around;
+    height: 50px;
+}
+
+
+.execute li{
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 12px;
+    background-color:rgb(5, 103, 133);
+    
+    
+}
+
+.execute li:hover, .execute li:active{
+    background-color: rgb(128, 176, 248);
+}
+
+.execute a{
+    width: 50px;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 0px;
+    color: rgb(255, 254, 254);
+    margin: 0px auto;
+}
+
+.execute2{
+    
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: space-around;
+    height: 50px;
+}
+
+
+.execute2 li{
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    
+    border-radius: 12px;
+    background-color:rgb(5, 103, 133);
+    
+    
+}
+
+.execute2 li:hover, .execute li:active{
+    background-color: rgb(128, 176, 248);
+}
+
+.execute2 a{
+    width: 50px;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 0px;
+    color: rgb(255, 254, 254);
+    margin: 0px auto;
+}
+
+.list_orders{
+    background-color: rgb(78, 151, 235);
+    list-style: none;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 60% 30%;
+    border-radius: 12px;
+    padding: 10px;
+    margin-right: 10px;
+    width:95.5% ;
+    margin-bottom: 10px;
+}
+
+.list_orders li{
+    padding: 1  px;  
+}
+
+.list_orders li a{  
+    text-decoration: none;
+    
+}
+
+
+
+.list_orders a img{
+    text-align: right;
+    padding: 0px;
+    width: 30px;
+    right: 20px;
+}
+
+.list_orders img{
+   right: 20px;
+   margin-left: 90px;
+   margin-top: 5px;
+}
+
+#success{
+    text-align: center;
+    font-size: 90px;
+}
+
+.kembalian{
+    margin-right: 0px;
+    margin-top: 0px;
+}
+.kembalian label h1{
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-size: 40px;
+}
+
+.lastorder{
+    background-color: aqua;
+}
+
+.judul-1{
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    padding: 2px;  
+    border: 0px solid;
+    border-radius: 12px;    
+    margin-bottom: 10px;
+}
+
+.judul-1 h1{
+    font-size: 72px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+   
+}   
+
+.judul-2{
+    border: 0px solid;
+    background-color: rgb(78, 151, 235);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.judul-2 h1{
+    font-size: 25px;
+    margin-top: 20px;
+   
+}
+
+.judul-2 a{
+    text-decoration: none; 
+}
+
+.judul-2 a h1{
+    margin-top: 15px;
+    text-align: center;
+    color: black;
+    background-color: rgb(252, 252, 252);
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.judul-2 a h1:hover, .judul-2 a h1:active{
+    background-color: rgb(5, 34, 99);
+    color: aliceblue;
+}
+
+.tambah_data input{
+    border: 0px solid;
+    border-radius: 5px;
+    font-size: 30px;
+    width: 200px;
+    margin-left: 9px;
+}
+
+.tambah_data button{
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 12px;
+    border: 0px solid;
+    background-color: rgb(254, 255, 255);
+}
+
+.tambah_data button:hover,.tambah_data button:active{
+    background-color: rgb(2, 39, 70);
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.containersetting{
+    background-color: rgba(240, 255, 255, 0);
+    display: grid;
+    border: 0px solid;
+    grid-template-columns: 18% 82%;
+    grid-template-rows: 100%;
+    padding: 0px;
+    border-radius: 12px;
+    
+   
+}
+
+.settings-1 ul{
+    padding: 20px;
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    height: 95%;
+}
+
+.settings-1 li{
+    list-style: none;
+    margin-bottom: 56px;
+    margin-top: 58px;
+    padding: 10px;
+    background-color: rgb(78, 151, 235);
+    border-radius: 12px;
+    border: 0px solid;
+    text-align: center;
+}
+
+
+.settings-1 a{
+    text-decoration: none;
+    color: black; 
+}
+
+.settings-1 li:hover, .settings-1 li :active{
+    background-color: rgb(5, 53, 117);
+    color: aliceblue;
+    cursor : pointer
+}
+
+.settings-2{
+    background-color:rgb(255, 255, 255);
+    margin-left: 15px;
+    border-radius: 12px;
+    padding: 10px;
+    height: 460px;
+}
+
+.read_table{
+    background-color:rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 10px;
+    overflow: auto;
+    height: 300px;
+}
+
+.overview{
+    background-color: rgb(94, 169, 238);
+    border: 0px solid ;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 94% 7%;
+}
+
+.overview_sold{
+    background-color: rgba(190, 212, 233, 0.377);
+    border: 0px solid ;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 94% 7%;
+}
+
+.read_table ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+.overview li{
+    list-style: none;
+    font-size: 30px;
+    margin-left: 0px;
+    padding: 15px;
+}
+
+.overview_sold li{
+    list-style: none;
+    font-size: 30px;
+    margin-left: 0px;
+    padding: 15px;
+}
+
+.report img{
+    width: 500px;
+}
+
+.all-5{
+    display : grid;
+    gap: 10px;
+}
+
+.judul-4{
+    display: grid;
+    grid-template-columns: 7% 46% 44%;
+    background-color: aliceblue;
+    gap : 10px;
+    border: 10px;
+    width: 98.5%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.out{
+    background-color: rgb(4, 90, 250);
+    border: 0px solid;
+    border-radius:10px;
+}
+
+.out img{
+    margin-left: 10px;
+}
+
+.out:hover,.out:active{
+    background-color: rgb(3, 11, 114);
+    cursor: pointer;
+    padding: 0.01px;
+}
+
+.header_report{
+    background-color: rgb(4, 90, 250);
+    padding: 2px;
+    border-radius: 12px;
+    color: rgb(255, 255, 254);
+}
+
+.header_report h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+.filter{
+    background-color: rgb(4, 90, 250);          
+    border-radius: 12px;
+    width: 100%;
+    padding: 10px;
+    color: rgb(255, 255, 254);
+}
+
+.filter form{
+    display: grid;
+    grid-template-columns: 10% 20% 60%;
+    gap: 20px;  
+}
+
+.header h1, .filter h1{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.bahan-1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.bahan-3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.filter form input{
+    width: 100%;
+    height:18px;
+    border-radius: 4px;
+    border : 0px solid;
+}
+
+.filter button{
+    width: 100%;
+}
+
+.figure{
+    background-color: azure;
+   
+    display: grid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dashboard{
+    height: 100px;
+    display: grid;
+    grid-template-columns: 33% 33% 32%;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.figure .dashboard h2{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 12px;
+}
+
+.revenue ,.Quantity ,.count{
+    border: 0px solid;
+    background-color: rgb(6, 112, 250);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.table-report{
+    margin-top: 10px;
+    overflow-y: auto;
+    height: 340px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.table-report table{
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+    border-collapse: collapse;
+    
+}
+
+.table-report table th{
+    height: 40px;
+    margin : 10% auto;
+    margin-top: 0px;
+    position: sticky;
+    top: 0px;
+    background-color: rgb(43, 144, 226);
+    padding: 10px;
+}
+
+.table-report table td{
+    margin : 10% auto;
+    margin-top: 0px;
+    overflow-y: auto;
+    height: 40px;
+}
+
+
+
+.table-report table tr:nth-child(even){
+    background-color: rgba(12, 96, 253, 0.192);
+}
+
+.format_tambah{
+    background-color: rgba(4, 95, 170, 0.247);
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 20px;
+    width: 97.5%;
+    padding: 10px;
+    border-radius: 12px;
+    
+}
+
+.format_tambah input{
+    margin-bottom: 19px;
+    margin-top: 5px;
+    height: 35px;
+    width: 97%;
+    border: 0px solid;
+    border-radius: 8px;
+    font-size: 15px;
+
+}
+
+.format_tambah label{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.format_tambah button{
+    width: 97%;
+    height: 40px;
+    border: 0px solid;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgb(43, 144, 226);
+    cursor: pointer;
+}
+
+.format_tambah button :hover, .format_tambah button:active{
+    cursor: pointer;
+    background-color: rgb(2, 42, 77);
+    color: #f0f8ff;
+}
+
+
+@media screen and (max-width : 800px){
+
+
+    .menu2{
+        padding : 10px;   
+    }
+
+    .menu2 li{
+        padding-right: 80%;
+        margin-top: 2px;
+        margin-right: 0px ;
+        margin-right: 10px;
+    }
+
+    .menu2 li a{
+        text-align: center;
+    }
+
+    .all4{
+        height: 500px;
+        padding-bottom: 800px;
+    }
+
+    .format{
+        display: grid;
+    }
+    
+    .format form{
+        border: 0px solid rgb(7, 7, 7);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        display: grid;   
+        grid-template-columns: 30% 30% auto;
+    }
+    
+    .format form select{
+        height: 40px;
+        width: 80%;
+    }
+    
+    
+    .format button{
+        height: 80%;
+        border-radius: 12px;
+        border: 0px solid;
+        font-size: 15px;
+        background-color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-right: 10px;
+    }
+    
+    .format form button:hover,.format form button:active{
+        background-color: rgb(2, 2, 53);
+        color: rgb(254, 255, 255);      
+        cursor: pointer;
+    }
+
+    .containertable{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 32% 32% 32% 32% 32%;
+        text-align: center; 
+        padding: 0px;
+        overflow: auto;
+        background-color: rgba(253, 253, 253);
+        padding: 1px;
+        border: 0px solid wheat;
+        border: 0px solid wheat;
+        border-radius: 10px;
+        margin : 10px auto;
+        margin-left: 0px;
+        margin-right: 0px;
+        height: 320px;
+    }
+    
+    
+    
+    .itemstable{
+        background-color: rgb(32, 149, 216);
+        border: 0px solid;
+        margin: 2px 10px;
+        border-radius: 12px;
+        padding : 0px;
+        height: 40px;
+        width: 50px;
+    }
+    
+    .itemstable:hover , .itemstable:active{
+        background-color: cadetblue ;
+    }
+    
+    .itemstable a{
+        color: black;
+        margin-top: 10px;
+        text-decoration: none;
+        padding: 0px;
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    
+    .containertable ul{
+        background-color: rgba(11, 134, 234, 0.342);;
+        padding: 10%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .list_pesanan{
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 10px;
+        height: 90%;
+        margin-bottom: 0px;
+    }
+
+    .list_pesanan{
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 10px;
+        margin-bottom: 0px;
+   
+    }
+
+
+
+    .nav_menu{
+        background-color: rgb(255, 255, 255);
+        border-radius: 12px;
+       
+   
+    }
+
+    .nav_menu ul{
+        padding: 0px;
+        margin:0px auto;
+        width: 340px;
+
+    }  
+
+    .nav_menu li{
+
+        list-style: none;
+        text-align: center;
+        padding: 0px;
+        display: inline ;
+        margin: 0px;
+        margin-right: 15px;
+        margin-left: 18px;
+    }
+
+    .nav_menu img{
+        width: 13%;
+        margin-left: 0.5px;
+    }
+
+    .content_list_menu{
+        background-color: rgb(255, 255, 255);
+        padding: 1px;
+        border-radius: 12px;
+        width: 99.8%;
+        height:100%;
+    }
+
+
+    .containertable2 ul {
+        
+        padding:2%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: left;
+        height:15%;
+    }
+
+    .containertable2 ul li{
+        list-style: none;   
+    }
+
+    .containertable2 ul li label{
+   
+        font-size: 20px;
+  
+    }
+
+    .itemstable2{
+        background-color: rgb(43, 44, 44);
+        border: 0px solid;
+        margin: 2px 5px;
+        border-radius: 12px;
+        padding : 0px;
+        height: 5%;
+        display: grid;
+        grid-template-columns: 57% 18.9% 19.5%;
+    }
+
+    .itemstable2 ul{
+        border: 0px solid;
+    }
+
+    .itemstable2 li{
+        border: 0px solid;
+        display: inline;
+    }
+
+
+    .itemstable2 h1{
+        margin: 0px;
+        font-size: 20px;
+        text-align: right;
+        margin-top: 5px;
+        margin-right: 0px;
+    }
+
+    .itemstable2 h2{
+        margin: 0px auto;
+        font-size: 17px;
+        text-align: left;
+    }
+
+    .itemstable2 h5{
+        margin: 0px auto;
+        font-size: 13px;
+    }
+
+    img{
+    display: inline;
+    padding: 1px
+    }
+
+    .gabung3{
+        background-color: rgba(11, 134, 234, 0.617);
+        padding: 10px;
+        border-radius: 12px;
+        margin-top: px;
+        height: 19%;
+    }
+    
+    .judul_pembayaran{
+        display: grid;
+        grid-template-columns: 32% 44% 25%;
+        
+    }
+    
+    .judul_pembayaran h1{
+        margin-top: 2px;
+        margin-bottom: 20px;
+        font-size: 80%;
+    }
+    
+    .judul_pembayaran ul{
+        padding: 0px;
+        margin-top: 0px;
+        display: inline;
+    }
+    
+    .judul_pembayaran li{
+        list-style: none;
+        display: inline;
+    }
+    
+    .format_pembayar{
+        margin-top: 2%;
+        display: grid;
+        grid-template-columns: 72% 28%;
+       
+    }
+    
+    .format_pembayar form{
+        border-bottom: 0px;
+        
+    }
+    
+    .format_pembayar form input{
+        border: 0px solid;
+        border-radius: 9px;
+        float: left;
+        background-color: aqua;
+        height: 40px;
+        width: 40%;
+        margin-right: 4%;
+        font-size: 90%;
+    }
+    
+    .format_pembayar button{
+        border: 0px solid;
+        width: 87%;
+        padding: 11px;
+        cursor: pointer;
+        background-color: rgb(252, 252, 252);
+        border-radius: 8px;
+        margin-left: 13.50%;
+        margin-bottom: 0px;
+        height: 40px;
+    }
+    
+    .footer{
+        display: grid;
+        grid-template-columns: 87% 12%;
+        gap: 13px;
+        margin-bottom: 20px;
+        
+    } 
+    
+    #success{
+        margin-top: 0px;
+        text-align: center;
+        font-size: 60px;
+    }
+
+    .change {
+        background-color: rgba(11, 134, 234, 0.617);
+        margin-top: 10px;
+        border: 0px solid;
+        padding: 10px;
+        border-radius: 12px;
+    
+    }
+    
+    
+    .change{
+        font-size: 16px;
+    }
+    
+    .change form{
+        display : grid;
+        grid-template-columns: 25% 25% auto;
+        padding: 0px;
+        gap: 30px;
+        
+    }
+    
+    .change ul{
+        padding: 0px;
+        margin-right: 50px;
+    }
+    
+    .change li{
+        list-style: none;
+    }
+    
+    .change h2{
+        margin-top: 0px;
+        font-size: 30px;
+        text-align: center;
+    }
+    
+    .change input{
+        width: 100%;
+        font-size: 20px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        border-radius: 12px;
+        border: 0px solid;
+    }
+    
+    .change select{
+        width: 100%;
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 15px;
+        border-radius: 12px;
+        border: 0px solid;
+    }
+    
+
+    
+    .change button:hover,.change button:active{
+        background-color: rgb(6, 69, 124);
+        cursor: pointer;
+    }
+
+    .canvas{
+        background-color: rgba(255, 255, 255, 0);
+        display: grid;
+        grid-template-columns: 100%;
+        gap : 20px;
+        height: 100%;
+        margin-right: 10px;
+    }
+    
+    .all2{
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        display: grid;
+        grid-template-columns: auto;
+        text-align: center;
+        width: 100%;
+        border-radius: 12px;
+        
+    }
+    
+    .all3{
+        background-color: rgb(253, 253, 253);
+        border: 0px solid wheat;
+        width: 100%;
+        padding: 5px;
+        border-radius: 12px ;
+    }
+    
+    .gabung form input{
+        width: 65%;
+        border: 0px solid rgb(7, 7, 7);
+        border-radius: 10px;
+        height: 40px;
+        margin-top: 10px;
+    
+    }
+
+    .containersetting{
+        background-color: rgba(240, 255, 255, 0);
+        display: grid;
+        border: 0px solid;
+        grid-template-columns: 100%;
+        padding: 0px;
+        border-radius: 12px
+    }
+    
+    .settings-1 ul{
+        padding: 20px;
+        margin: 0px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 12px;
+        height: 95%;
+    }
+    
+    .settings-1 li{
+        list-style: none;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        background-color: rgb(78, 151, 235);
+        border-radius: 12px;
+        border: 0px solid;
+        text-align: center;
+    }
+    
+    .settings-2{
+        background-color:rgb(255, 255, 255);
+        border-radius: 12px;
+        padding: 10px;
+        height: 460px;
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    
+
+    .judul-2{
+        border: 0px solid;
+        background-color: rgb(78, 151, 235);
+        border-radius: 12px;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: grid;
+        grid-template-columns: 50% 40%;
+        gap : 10px;
+    }
+
+    .overview{
+        display: grid;
+        grid-template-columns: 80% 20%;
+    }
+
+    .overview_sold{
+
+        display: grid;
+        grid-template-columns: 80% 20%;
+    }
+
+    .tambah_data input{
+        width: 160px;
+        margin-left: 9px;
+    }
+    
+    .tambah_data button{
+        margin-left: 10px;
+        margin-top: 20px;
+        font-size: 20px;
+        width: 160px;
+        padding: 5px;
+        border-radius: 12px;
+        border: 0px solid;
+        background-color: rgb(254, 255, 255);
+    }
+
+
+    .footer{
+        display: grid;
+        grid-template-columns: 100%;
+        margin-top: 30px;
+    }
+    .gabung4{
+        background-color: rgba(11, 134, 234, 0.617);
+        border-radius: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        display:grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 1px 25%;
+        padding-left: 5px;
+
+    }
+    
+    .gabung4 ul{
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    
+    .gabung4 li{
+        list-style: none;
+        text-align: left;
+        border : 0px solid;
+        margin-left: 0px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    
+    .gabung4 label h1{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    
+    .gabung4 label h4{
+        margin-top: 10px;
+        display: none;
+        font-size: 5px;
+    
+    }
+
+    .gabung4 li label h2{
+        font-size: 20px;
+    }
+
+    .done{
+        width: 100%;
+        border-radius: 15px;
+        display : grid;
+        grid-template-columns: 100%;
+        padding: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+    
+    .pdf_receipt , .nextback{
+        background-color: rgb(4, 138, 248);
+        width: 97%;
+        
+        margin-top: 0px;
+        margin-bottom: 3px;
+        border-radius: 10px;
+        border: 0px solid;
+        padding: 5px;
+    }
+
+    .pdf_receipt {
+        display: none;
+    }
+
+    .nextback a{
+       
+        padding-left: 150px;
+        
+    }
+
+    .nextback b{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .itemstable3{
+        background-color: rgb(43, 44, 44);
+        border: 0px solid;
+        margin: 2px 5px;
+        border-radius: 12px;
+        padding : 0px;
+        height: 5%;
+        display: grid;
+        grid-template-columns: 70% 30%;
+    }
+    
+    .itemstable3 ul{
+        border: 0px solid;
+    }
+    
+    .itemstable3 li{
+        border: 0px solid;
+    }
+    
+    .itemstable3 h1{
+        margin: 0px auto;
+        font-size: 20px;
+        text-align: right;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    
+    .itemstable3 h2{
+        margin: 0px auto;
+        font-size: 18px;
+        text-align: left;
+    }
+    
+    .itemstable3 h5{
+        margin-top: 2px;
+        font-size: 19px;
+    }
+    
+    .judul-4{
+        display: block;
+        grid-template-columns: 90%;
+        background-color: #f0f8ff;
+        border: 10px;
+        width: 97%;
+        padding: 10px;
+        border-radius: 10px;
+        
+    }
+
+    .judul-4 h1{
+        width: 10px;
+    }
+
+    .filter{
+        background-color: rgb(4, 90, 250);          
+        border-radius: 12px;
+        width: 97%  ;
+        padding: 10px;
+        color: rgb(255, 255, 254);
+       
+    }
+    
+    .filter form{
+        display: grid;
+        grid-template-columns: 10% 20% 30%;
+        gap: 20px;  
+        
+
+    }
+
+    .out{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .filter{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    .out{
+        background-color: rgb(4, 90, 250);
+        border: 0px solid;
+        border-radius:10px;
+        display: none;
+    }
+    
+    .out img{
+        margin-left: 10px;
+    }
+    
+    .out:hover,.out:active{
+        background-color: rgb(3, 11, 114);
+        cursor: pointer;
+        padding: 0.01px;
+    }
+    
+    .header_report{
+        background-color: rgba(4, 90, 250, 0);
+        border-radius: 12px;
+        color: rgb(3, 104, 255);
+    }
+    
+    .header_report h1{
+        font-size: 40px;
+        text-align: center;
+        width: 10px;
+        
+    }
+    
+    
+
+    .filter select{
+        width: 70%;
+    }
+
+
+    .all-5{
+        display : grid;
+        grid-template-columns: 100%;
+        gap: 10px;
+        
+    }
+
+    .dashboard{
+        height: 0%;
+        display: block;
+    }
+
+    .header{
+        margin-right: 0px;
+    }
+
+    .header h1{
+        font-size: 50px;
+        text-align: center;
+        margin-right: 0px;
+        display: inline;
+    }
+
+    .menu{
+        padding: 0px;
+        
+        
+    }
+    
+    
+    
+    .menu ul{
+        padding: 0px;
+        margin: 2px;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 100% ;
+        width: 98%;
+        
+       
+    }
+    
+    .menu li{
+        background-color: rgb(253, 253, 253);
+        list-style: none;
+        padding: 5px;
+        padding-top: 10px;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .container2{
+        grid-template-columns: 100%;
+    }
+    
+    .container2 img{
+        display: none;
+    }
+
+    .container form input{
+        width: 100%;
+    }
+
+    .contaer_ask{
+        display: grid;
+        grid-template-columns : 100%;
+    }
+
+    .questioner{
+        grid-template-columns: 100%;
+    }
+
+    .halaman{
+        display: none;
+        
+    }
+
+    .questioner center h2{
+        display: none;
+    }
+
+    .hello_pict {
+        display: none;
+    }
+
+    .menu_regist ul{
+        display: block;
+        width: 100%;
+    }
+
+    .menu_regist li{
+        width: 97%;
+        margin-bottom: 10px;
+    }
+    
+    h1{
+        font-size: 35px;
+        
+    }
+
+    .list_orders{
+        background-color: rgb(78, 151, 235);
+        list-style: none;
+        display: grid;
+        justify-content: space-around;
+        grid-template-columns: 40% 30%;
+        border-radius: 12px;
+        padding: 10px;
+        margin-right: 10px;
+        width:95.5% ;
+        margin-bottom: 10px;
+    }
+        
+}
