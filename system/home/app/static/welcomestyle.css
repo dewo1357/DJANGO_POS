@@ -1259,6 +1259,7 @@ body{
     padding: 4px;
     border-radius: 12px;
     width: 99.8%;
+    height: 100%;
     
 }
 
@@ -1624,8 +1625,8 @@ body{
 
 .settings-1 li{
     list-style: none;
-    margin-bottom: 58px;
-    margin-top: 60px;
+    margin-bottom: 56px;
+    margin-top: 58px;
     padding: 10px;
     background-color: rgb(78, 151, 235);
     border-radius: 12px;
@@ -1650,7 +1651,7 @@ body{
     margin-left: 15px;
     border-radius: 12px;
     padding: 10px;
-    height: 470px;
+    height: 460px;
 }
 
 .read_table{

@@ -104,14 +104,14 @@ def finished(request):
        
         data2=temp.objects.all().values()
         data_table = tablee6.objects.all()
-        table_num = numbertable3.objects.all().values()
+        table_num = numbertable3.objects.filter(no_user=request.user.id)
         keluar = temp.objects.filter(no_user=request.user.id) #variabel ini berfungsi mengambil value nomor meja terakhir bedasarkan id user
 
         #proses mengambil data terakhir dan di filter oleh id user untuk otomatis input ke dalam form input nomor meja
         #*****************************************
         numbers = []
         for i in table_num:
-            numbers.append(i['number_table'])
+            numbers.append(i.number_table)
         #******************************************
 
         #3 variabel ini difungsikan untuk kode setiap transaksi
@@ -143,7 +143,7 @@ def finished2(request):
     if request.method == 'GET':
         data2=orderss6.objects.all().values()
         data_table = tablee6.objects.all()
-        table_num = history.objects.all().values()
+        table_num = history.objects.filter(no_user=request.user.id)
         keluar = temp.objects.filter(no_user=request.user.id)
 
         
@@ -179,13 +179,13 @@ def process(request,kode_id):
         try:
             data1 = database.objects.get(kode_id=kode_id)
             data_table = tablee6.objects.all()
-            table_num = numbertable3.objects.all().values()
+            table_num = numbertable3.objects.filter(no_user=request.user.id)
             keluar = temp.objects.filter(no_user=request.user.id)
 
             #proses iterasi setiap value nomor meja dan di ambil yang akhir pada pada context nantinya
             numbers = []
             for i in table_num:
-                numbers.append(i['number_table'])  
+                numbers.append(i.number_table)  
                         
             #value context ini di siapkan untuk disisipkan ke dalam masing masing input form
             date = dt.now()
@@ -223,30 +223,56 @@ def proses_post(request):
 
 
             if quantity >= 1: #validasi quantity agar tidak di input 0 atau < 0
-                data = orderss6(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
-                        tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
-                        quantity=quantity,total_harga=total_harga,is_complete=is_complete,no_user=no_user)
-            
-                sementara = temp(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
-                            tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
-                            quantity=quantity,total_harga=total_harga,is_complete=is_complete,no_user=no_user)
                 
-                orders = penjualan(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
-                            tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
-                            quantity=quantity,total_harga=total_harga,no_user=no_user)
-                barang = database.objects.get(kode_id=kode_barang,no_user=request.user.id)
-                barang.out_barang = barang.out_barang + quantity #update keluar barang untuk proses kalkukasi tersisa barang
-                barang.tersisa = barang.tersisa - quantity #eksekusi tersisa barang dari pengurangan tersisa nya barang dan keluar barang
-                if barang.tersisa >= 0: #valiasi apabila barang tersisa lebih dari 0.
-                    barang.save()
-                    sementara.save()
-                    data.save() 
-                    orders.save() 
-                    return redirect('/finished')#kembali ke halaman katalog pilihan produk untuk tambahan pesanan
-                else: #apabila sudah melewati 0 dan hasilnya minus
-                    messages.error(request,"Stok Tersisa Tidak Mencukupi") #pesan messages
-                    print(barang.tersisa)
-                    return redirect(request.META.get("HTTP_REFERER","/")) # mengembalikan ke halaman yang sama/RELOAD
+                if temp.objects.filter(kode_barang=kode_barang).exists():
+                    ubah = temp.objects.get(kode_barang=kode_barang)
+                    ubah.quantity += quantity
+                    
+                    data = orderss6(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
+                                    tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
+                                    quantity=quantity,total_harga=total_harga,is_complete=is_complete,no_user=no_user)
+                    
+                    orders = penjualan(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
+                                   tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
+                                   quantity=quantity,total_harga=total_harga,no_user=no_user)
+                    barang = database.objects.get(kode_id=kode_barang,no_user=request.user.id)    
+                    barang.out_barang = barang.out_barang + quantity #update keluar barang untuk proses kalkukasi tersisa barang
+                    barang.tersisa = barang.tersisa - quantity #eksekusi tersisa barang dari pengurangan tersisa nya barang dan keluar barang
+                    if barang.tersisa >= 0: #valiasi apabila barang tersisa lebih dari 0.
+                            barang.save()
+                            data.save()
+                            orders.save()
+                            ubah.save()
+                            return redirect('/finished')#kembali ke halaman katalog pilihan produk untuk tambahan pesana
+                    else: #apabila sudah melewati 0 dan hasilnya minus
+                        messages.error(request,"Stok Tersisa Tidak Mencukupi") #pesan messages
+                        return redirect(request.META.get("HTTP_REFERER","/")) # mengembalikan ke halaman yang sama/REL
+                else:
+                        sementara = temp(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
+                                        tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
+                                        quantity=quantity,total_harga=total_harga,is_complete=is_complete,no_user=no_user)
+                        data = orderss6(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
+                                        tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
+                                        quantity=quantity,total_harga=total_harga,is_complete=is_complete,no_user=no_user)
+                        orders = penjualan(transaction_id=transaction_id,kode_barang=kode_barang,no_table=no_table_id,
+                                        tanggal=tanggal,nama_barang=nama_barang,harga_jual=harga_jual,
+                                        quantity=quantity,total_harga=total_harga,no_user=no_user)
+                        
+                        barang = database.objects.get(kode_id=kode_barang,no_user=request.user.id)
+                        barang.out_barang = barang.out_barang + quantity #update keluar barang untuk proses kalkukasi tersisa barang
+                        barang.tersisa = barang.tersisa - quantity #eksekusi tersisa barang dari pengurangan tersisa nya barang dan keluar barang
+                        if barang.tersisa >= 0: #valiasi apabila barang tersisa lebih dari 0.
+                            barang.save()
+                            data.save()
+                            orders.save()
+                            sementara.save()
+                            
+                            return redirect('/finished')#kembali ke halaman katalog pilihan produk untuk tambahan pesanan
+                        else: #apabila sudah melewati 0 dan hasilnya minus
+                            
+                            print(barang.tersisa)        
+                            messages.error(request,"Stok Tersisa Tidak Mencukupi") #pesan messages
+                            return redirect(request.META.get("HTTP_REFERER","/")) # mengembalikan ke halaman yang sama/RE
             else :
                 messages.error(request,"Quantity Tidak Boleh Kurang Dari 1.")#pesan dari eksekusi quantity yang di pesan.
                 return redirect(request.META.get("HTTP_REFERER","/")) #RELOAD
@@ -259,11 +285,11 @@ def process2(request,kode_id):
         data1 = database.objects.get(kode_id=kode_id)
         data = orderss6.objects.all().values()
         data_table = tablee6.objects.all()
-        table_num = history.objects.all().values()
+        table_num = history.objects.filter(no_user=request.user.id)
         keluar = temp.objects.filter(no_user=request.user.id)
         number = []
         for i in table_num:
-            number.append(i['history'])   
+            number.append(i.history)   
         date = dt.now()
         second = date.second
         years = date.year
@@ -334,9 +360,9 @@ def list_table(request):
         try:
             table = orderss6.objects.filter(no_user=request.user.id)
             order = tablee6.objects.filter(no_user=request.user.id)
-            table_num = numbertable3.objects.all()
-            cashier = kumpulan_cashier.objects.all()
-            meja = kumpulan_table.objects.all()
+            table_num = numbertable3.objects.filter(no_user=request.user.id)
+            cashier = kumpulan_cashier.objects.filter(no_user=request.user.id)
+            meja = kumpulan_table.objects.filter(no_user=request.user.id)
             #menampilkan value di halaman html berdasarkan masing masing referensi value variabel diatas
             context = {
                 'orders' : order,
@@ -351,10 +377,11 @@ def list_table(request):
         
         #antisipasi kesalahan user dalam menggunakan sistem
         except IndexError:
+            
             numbers = []
             for i in table:
                 if i != None: #validasi apabila tidak sama dengan None maka di kosong
-                    numbers.append(i.no_table_id)
+                    numbers.append(i.no_table)
                 else:
                     tablee6.objects.get(no_table=table_num).delete()#jika ada maka ambil informasi dari meja tersebut
 
@@ -421,7 +448,7 @@ def list_orders(request,no_table_id):
         if request.method=='GET':
             try:
                 data = orderss6.objects.filter(no_table=no_table_id,no_user=request.user.id)
-                data1 = history.objects.all()
+                data1 = history.objects.filter(no_user=request.user.id)
                 date = dt.now()
                 total_amount = 0
 
@@ -466,7 +493,7 @@ def list_orders(request,no_table_id):
                 return render(request,'page4.html',context=context)
             except IndexError: #antisipasi kesalahan user menggunakan system
                 data = orderss6.objects.filter(no_table_id=no_table_id)
-                data1 = history.objects.all()
+                data1 = history.objects.filter(no_user=request.user.id)
                 date = dt.now()
                 total_amount = 0
 
@@ -485,9 +512,8 @@ def list_orders(request,no_table_id):
                 }
                 return render(request,'page4.html',context=context)
         elif request.method == 'POST':
-            data = history.objects.all()
             data1 = request.POST['nomor_table']
-            data = history(history=data1)
+            data = history(history=data1,no_user=request.user.id)
             data.save()
             return redirect('/order_table')
         
@@ -495,7 +521,7 @@ def list_orders(request,no_table_id):
 @csrf_exempt       
 def finishpay(request,no_table_id):
     orders = orderss6.objects.filter(no_table=no_table_id,no_user=request.user.id)
-    detail = master.objects.filter(no_table=no_table_id)
+    detail = master.objects.filter(no_table=no_table_id,no_user=request.user.id)
 
 
     if request.method == 'POST':
@@ -527,10 +553,10 @@ def finishpay(request,no_table_id):
             print(pay)
             data = transaction_done(transaction_id=transaction_id,no_table=no_table,
                                 tanggal=tanggal,total_amount=total_amount,
-                                pay=pembayaran,kembalian=kembalian)        
+                                pay=pembayaran,kembalian=kembalian,no_user=request.user.id)        
             data2 = master(transaction_id=transaction_id,no_table=no_table,
                         tanggal=tanggal,total_amount=total_amount,discount=discount,
-                        pay=pembayaran,kembalian=kembalian)
+                        pay=pembayaran,kembalian=kembalian,no_user=request.user.id)
             context = {
                 'orders' : orders,
                 'detail' : detail,
@@ -550,7 +576,7 @@ def finishpay(request,no_table_id):
 #proses eksekusi menciptakan struct pdf
 def print_receipt(request,no_table_id):
     orders = orderss6.objects.filter(no_table=no_table_id,no_user=request.user.id)
-    detail = master.objects.get(no_table=no_table_id)
+    detail = master.objects.get(no_table=no_table_id,no_user=request.user.id)
     total_harga = 0
     harga = []
     amount = []
@@ -681,26 +707,44 @@ def deleteitems(request,transaction_id):
     #proses mengembalikan nilai stok quantity yang di cancel 
     #sehingga kolom tersisa dari katalog kembali seperti semula
     for i in kode:
-        data = database.objects.get(kode_id=i,no_user=request.user.id)
-        sementara = temp.objects.get(kode_barang=i,no_user=request.user.id)
-        data.tersisa = sementara.quantity
-        data.save()
+        data = database.objects.get(kode_id=i)
+        if temp.objects.get(transaction_id=transaction_id).DoesNotExist():
+            sementara = temp.objects.get(kode_barang=i)
+            data.tersisa = sementara.quantity
+            data.save()
+        else:
+            sementara = temp.objects.get(kode_barang=i)
+            data.tersisa = sementara.quantity
+            data.save()
         
-    
-    temp.objects.get(transaction_id=transaction_id).delete()
-    orderss6.objects.get(transaction_id=transaction_id).delete()
+    if temp.objects.get(transaction_id=transaction_id).DoesNotExist():
+       nama_barang = []
+       for i in order:
+           nama_barang.append(i.nama_barang)
+           
+       for i in nama_barang:
+                print(i)
+                temp.objects.filter(nama_barang=i,no_user=request.user.id).delete()
+                orderss6.objects.filter(nama_barang=i,no_user=request.user.id).delete()
+                return redirect(request.META.get("HTTP_REFERER","/"))
+    else:
+        temp.objects.get(transaction_id=transaction_id).delete()
+        orderss6.objects.get(transaction_id=transaction_id).delete()
+        penjualan.objects.get(transaction_id=transaction_id).delete()
     return redirect(request.META.get("HTTP_REFERER","/"))
 
 #fitur cancel saat proses transaksi input barang ke dalam meja customer
 def executecancel(request):
-    data = tablee6.objects.all().values()
+    data = tablee6.objects.filter(no_user=request.user.id)
     sementara = temp.objects.filter(no_user=request.user.id)
     kode_id = []
+    no_transaksi = []
     count = 0
 
     #mengambil data kode_id di masing masing table temp
     for i in sementara:
         kode_id.append(i.kode_barang)
+        no_transaksi.append(i.transaction_id)
         count += 1
 
     #eksekusi return stok ketika di cancel ke dalam column stok tersisa pada table katalog database
@@ -715,8 +759,8 @@ def executecancel(request):
     numbers = []
     no_user = []
     for i in data:
-        numbers.append(i['no_table'])  
-        no_user.append(i['no_user'])
+        numbers.append(i.no_table)  
+        no_user.append(i.no_user)
     tablee6.objects.filter(nomor_meja=numbers[-1],no_user=request.user.id).delete()
     numbertable3.objects.filter(number_table=numbers[-1],no_user=request.user.id).delete()
     return redirect('/') #mengembalikan ke halaman awal
@@ -725,7 +769,7 @@ def executecancel(request):
 #**************************************************
 def settings(request,transaction_id):
     orders = orderss6.objects.get(transaction_id=transaction_id) #Mendapatkan detail informasi setiap transaksi
-    meja = kumpulan_table.objects.all()#menampilkan kumpulan meja untuk di pilih kemana customer pindah
+    meja = kumpulan_table.objects.filter(no_user=request.user.id)#menampilkan kumpulan meja untuk di pilih kemana customer pindah
     #referernsi untuk menampilkan di halaman html
     context = {
         'orders' : orders,
@@ -736,12 +780,12 @@ def settings(request,transaction_id):
 @csrf_exempt
 def process_settings(request,transaction_id):
     data = orderss6.objects.get(transaction_id=transaction_id,no_user=request.user.id)
-    meja = tablee6.objects.all().values()
+    meja = tablee6.objects.filter(no_user=request.user.id)
     table = request.POST['no_table_id']
 
     kumpulan = []
     for i in meja:
-        kumpulan.append(i['no_table'])
+        kumpulan.append(i.no_table)
 
     #kondisi ini digunakan jika pesanan customer tidak ada dalam table pesanan.(antisipisasi HUMAN ERROR)
     if table in kumpulan:
@@ -762,7 +806,7 @@ def process_settings(request,transaction_id):
 @login_required
 def read(request):
     if request.method == 'GET':
-        data = database.objects.all().values()
+        data = database.objects.filter(no_user=request.user.id)
         return render(request,'read.html',{'data':data})
 
 #fitur menambahkan product baru
@@ -778,7 +822,6 @@ def tambah(request):
         random = np.random.randint(1000)
         #------------------------------
         template = loader.get_template("tambah.html")
-        data = database.objects.all()
         #ketiga variabel di atas, di masukan ke dalam halaman html
         context={
             'waktu':detik,
@@ -789,7 +832,7 @@ def tambah(request):
     
     #proses menambahkan product kedalam table product
     if request.method == 'POST':
-        data = database.objects.all()
+
         kode_id = request.POST['kode_id']
         nama_barang = request.POST['nama_barang']
         jenis = request.POST['jenis']
@@ -804,7 +847,7 @@ def tambah(request):
         tersisa = quantity
         no_user = request.user.id
         #validasi/memastikan menghindari kode_id yang duplikasi
-        if database.objects.filter(kode_id=kode_id).exists():
+        if database.objects.filter(kode_id=kode_id,no_user=request.user.id).exists():
             return redirect('tambah')
         else:#berfungsi jika lolos qualifikasi duplikasi
             data = database(
@@ -826,7 +869,7 @@ def tambah(request):
 def edit(request,kode_id):
     if request.method=='GET':
         #berfungsi menampilkan data pada halaman edit.html
-        data = database.objects.get(kode_id=kode_id)
+        data = database.objects.get(kode_id=kode_id,no_user=request.user.id)
         context = {
             'data' : data
         }
@@ -844,7 +887,7 @@ def edit(request,kode_id):
         income_unit = int(harga_jual) * int(harga_modal)
         sum_of_income = int(income_unit) - int(quantity)
        
-        data = database.objects.get(kode_id=kode_id) #variabel yang menampung data product berdasarkan kode_id
+        data = database.objects.get(kode_id=kode_id,no_user=request.user.id) #variabel yang menampung data product berdasarkan kode_id
         #proses update
         #***************************
         data.kode_id = kode_id
@@ -878,10 +921,10 @@ def overview(request):
 #proses akhir transaksi
 def done(request):
     no_table_id = []
-    data = transaction_done.objects.all().values()
+    data = transaction_done.objects.filter(no_user=request.user.id)
 
     for i in data :
-        no_table_id.append(i['no_table'])#mengambil data transaksi selesai pada kolom table
+        no_table_id.append(i.no_table)#mengambil data transaksi selesai pada kolom table
     meja = tablee6.objects.filter(no_table=no_table_id[-1],no_user=request.user.id) #filter dengan variabel list di posisi paling akhir
 
     for i in meja:
@@ -929,7 +972,7 @@ def tambah_meja(request):
     tambah_meja = request.POST['tambah_meja']
     no_user = request.user.id
     meja = kumpulan_table(no_table=tambah_meja,no_user=no_user)
-    if kumpulan_table.objects.filter(no_table=tambah_meja).exists():
+    if kumpulan_table.objects.filter(no_table=tambah_meja,no_user=no_user).exists():
         pass
     else:
         meja.save()

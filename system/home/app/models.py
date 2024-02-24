@@ -80,6 +80,7 @@ class numbertable3(models.Model):
 
 class history(models.Model):
     history = models.IntegerField()
+    no_user = models.CharField(max_length=30,null=True)
 
 class temp(models.Model):
     transaction_id = models.CharField(primary_key=True,null=False,max_length = 30)
@@ -116,6 +117,7 @@ class transaction_done(models.Model):
     total_amount = models.IntegerField(null=False)
     pay = models.IntegerField(null=False)
     kembalian = models.IntegerField(null=False)
+    no_user = models.CharField(max_length=30,null=True)
 
 
 class master(models.Model):
@@ -126,6 +128,7 @@ class master(models.Model):
     discount = models.DecimalField(default=0,null=False, max_digits=10, decimal_places=2)
     pay = models.IntegerField(null=False)
     kembalian = models.IntegerField(null=False)
+    no_user = models.CharField(max_length=30,null=True)
 
 
 class kumpulan_table(models.Model):
