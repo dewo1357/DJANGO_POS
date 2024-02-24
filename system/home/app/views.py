@@ -392,10 +392,10 @@ def list_table(request):
 def post_list_table(request):
     if request.method=='POST':
         try:
-            table = orderss6.objects.all().values()
+            table = orderss6.objects.filter(no_user=request.user.id)
             order = tablee6.objects.filter(no_user=request.user.id)
-            meja = kumpulan_table.objects.all()
-            cashier = kumpulan_cashier.objects.all()
+            meja = kumpulan_table.objects.filter(no_user=request.user.id)
+            cashier = kumpulan_cashier.objects.filter(no_user=request.user.id)
 
             table_num = request.POST['number_table'] #input customer ingin di meja berapa
             cashier_name = request.POST['cashier_name'] #nama user. default dari user atau anggota si user melalui table kumpulan_table
@@ -1036,9 +1036,9 @@ def visualization(request):
     
     #validasi filter laporan
     if nama_barang: 
-        data  = penjualan.objects.filter(nama_barang__icontains=nama_barang).order_by('-tanggal')
+        data  = penjualan.objects.filter(nama_barang__icontains=nama_barang,no_user=request.user.id).order_by('-tanggal')
     if tanggal:
-        data = penjualan.objects.filter(tanggal__icontains=tanggal)
+        data = penjualan.objects.filter(tanggal__icontains=tanggal,no_user=request.user.id)
     if nama_barang and tanggal:
         data  = penjualan.objects.filter(nama_barang__icontains=nama_barang,tanggal__icontains=tanggal)
     for i in data:
