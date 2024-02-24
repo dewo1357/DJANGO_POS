@@ -78,6 +78,7 @@ Lakukan command 'py manage.py migrate'
 5. eksekusi dengan cmd 'py manage.py runserver'
 6. default halaman masih di dalam quistioner. sangat berfungsi apabila kamu ingin deploy dan publish. sehingga user yang mendaftar tetap terpantau.
 ![mariPOS - Google Chrome 23_02_2024 14_53_45](https://github.com/dewo1357/DJANGO_POS/assets/130409621/9d8c812c-a63d-43c5-95f6-5c550bcde1f5)
-7. untuk lebih lanjut tentang pemakaian kamu bisa check link video dibawah
+7. untuk lebih lanjut tentang pemakaian kamu bisa check link video
+   
       -https://drive.google.com/file/d/1c_29B2nBdPG11kF_p1E04MlCuL79I1eS/view?usp=sharing
 
